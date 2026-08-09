@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-navy;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.profit.DEFAULT");
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Signature "receipt" result card: a torn-edge paper slip with itemized,
+     tabular figures — the visual language of the fee/profit breakdown a
+     seller actually reads on every order. */
+  .receipt {
+    @apply relative bg-surface rounded-xl shadow-card;
+    border: 1px solid theme("colors.line");
+  }
+
+  .receipt::before,
+  .receipt::after {
+    content: "";
+    @apply absolute left-0 right-0 h-px;
+    background-image: repeating-linear-gradient(
+      to right,
+      theme("colors.line") 0,
+      theme("colors.line") 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+
+  .receipt::before {
+    top: -1px;
+  }
+
+  .receipt::after {
+    bottom: -1px;
+  }
+
+  .receipt-row {
+    @apply flex items-baseline justify-between gap-4 py-2.5 font-mono text-sm;
+    border-bottom: 1px dashed theme("colors.line");
+  }
+
+  .receipt-row:last-child {
+    border-bottom: none;
+  }
+}
