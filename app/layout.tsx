@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -33,6 +33,11 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+
+  verification: {
+    google: "m5ec3L_0uDnwM1rfK823jk9c3ocFesDevorTQZnhlNU",
+  },
+
   openGraph: {
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
