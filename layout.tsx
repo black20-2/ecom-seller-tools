@@ -54,6 +54,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="m5ec3L_0uDnwM1rfK823jk9c3ocFesDevorTQZnhlNU"
+        />
+      </head>
+
       <body className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>
